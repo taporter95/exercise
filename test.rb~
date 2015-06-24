@@ -19,7 +19,7 @@ class InFrame
 	  for x in @words_array do
 	    print "*"
 	    print "#{x}"
-	    section_length = ((x.length) + 2)
+	    section_length = (x.length)
 	    while (section_length) < length
 	      print " "
 	      section_length += 1
@@ -31,6 +31,18 @@ class InFrame
 	      print "*"
 	    end
           puts ""
+	end
+
+	def printhtml
+	  puts "<!DOCTYPE html>"
+	  puts "<html>"
+	  for x in @words_array do
+	    print "<p> #{x} </p>"
+	    puts ""
+	  end
+	  puts "</body>"
+	  puts "</html>"
+	  puts ""
 	end
 
 	def to_num
@@ -50,4 +62,4 @@ userInput.to_s
 display = InFrame.new(userInput)
 
 display.printFrame
-
+display.printhtml

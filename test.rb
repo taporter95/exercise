@@ -1,21 +1,25 @@
 
 
-class InFrame 
+class InFrame
+      #initailize class with input from user 
       def initialize(userInput)
         @input = userInput
+
+	#take user input and split into array
         @words_array = @input.split
       end
 
 
 
-
-	def printFrame 
+	#Print frame with text
+	def printFrame
+	  #Get length of largest word 
 	  length = to_num
-	  puts length
+	  
 	  (length+2).times {print "*"}
 
 	  puts ""
-	  
+	  #print *, then print word, then spaces to fill, then *
 	  for x in @words_array do
 	    print "*"
 	    print "#{x}"
@@ -32,7 +36,20 @@ class InFrame
 	    end
           puts ""
 	end
+	#Print text as an html doc
+	def printhtml
+	  puts "<!DOCTYPE html>"
+	  puts "<html>"
+	  for x in @words_array do
+	    print "<p> #{x} </p>"
+	    puts ""
+	  end
+	  puts "</body>"
+	  puts "</html>"
+	  puts ""
+	end
 
+	#put the lengths of each word into an array and find longest
 	def to_num
 	  nums = []
 	  @words_array.each do |word|
@@ -50,4 +67,4 @@ userInput.to_s
 display = InFrame.new(userInput)
 
 display.printFrame
-
+display.printhtml
